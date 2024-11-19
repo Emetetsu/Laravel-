@@ -1,7 +1,6 @@
 use App\Models\Resume;
 
-public function index()
-{
-    $resume = Resume::first();
-    return view('resume', ['resume' => $resume]);
+public function showResume() {
+    $resume = Resume::first();  // Get the first resume record from your database
+    return view('resume', compact('resume'));
 }
