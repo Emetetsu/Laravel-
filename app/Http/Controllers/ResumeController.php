@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Resume; // Use the Resume model
-use Illuminate\Http\Request;
+use App\Models\Resume;
 
-class ResumeController extends Controller
+public function showResume()
 {
-    public function showResume()
-    {
-        // Fetch resume data from the database (you might need to adjust this)
-        $resume = Resume::first(); // or use any appropriate query to fetch data
-        
-        return view('resume', compact('resume')); // Pass resume data to the view
+    // Fetch the first resume entry
+    $resume = Resume::first(); 
+    
+    // Check if data exists
+    if (!$resume) {
+        return response()->json(['message' => 'No resume found']);
     }
+    
+    // Pass the data to the view
+    return view('resume', compact('resume'));
 }
