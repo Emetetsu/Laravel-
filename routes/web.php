@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ResumeController;
 
-Route::get('/', function () {
-    return view('resume'); // Make sure this is the correct view file (resume.blade.php).
-});
+Route::get('/resume', [ResumeController::class, 'showResume']);
