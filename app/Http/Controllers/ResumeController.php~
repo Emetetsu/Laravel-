@@ -1,0 +1,7 @@
+use App\Models\Resume;
+
+public function index()
+{
+    $resume = Resume::first();
+    return view('resume', ['resume' => $resume]);
+}
